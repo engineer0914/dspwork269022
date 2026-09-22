@@ -40,6 +40,8 @@ setup(
             'robocup_test = robocup_navigator.robocup_test:main',
             'robocup_current_pose = robocup_navigator.current_pose:main',
             'waypoint_editor = robocup_navigator.waypoint_editor:main',
+            'demo_route = robocup_navigator.demo_route:main',
+            
         ],
     },
 )

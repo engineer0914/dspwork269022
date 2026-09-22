@@ -1,0 +1,7 @@
+rotation_profiles:
+  station_1_goal:
+    direction: clockwise
+    angle_deg: 118.738
+  station_2_goal:
+    direction: clockwise
+    angle_deg: 154.33

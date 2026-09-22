@@ -1,5 +1,16 @@
+#################################################################################
 
+웨이포인트 에디터 옆에 새로 생성후 이름 바꾸고 여기에 맞춰서 드래그 및 포인트 지정하기
 
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 run robocup_navigator demo_route
+```
+
+#################################################################################
 ## 맵 제작기
 
 ```
@@ -27,6 +38,16 @@ ros2 run robocup_navigator waypoint_editor \
   --waypoints ~/ros2_ws/src/robocup_navigator/params/demo_waypoint.yaml
 
 ```
+
+```
+#new map
+cd ~/ros2_ws
+
+colcon build --packages-select robocup_navigator
+
+source install/setup.bash
+```
+
 #################################################################################
 run drive
 
@@ -37,6 +58,8 @@ cd ~/ros2_ws
 colcon build --packages-select all_in_one_package
 source install/setup.bash
 ```
+
+
 
 ```
 #window 1 - demo navigation
@@ -60,8 +83,6 @@ ros2 action list | grep navigate_to_station
 ```
 #window 3 - goal move
 
-
-```
 ros2 action send_goal \
   /navigate_to_station \
   robocup_pkg/action/NavTask \
