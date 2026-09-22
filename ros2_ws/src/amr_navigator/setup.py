@@ -1,0 +1,44 @@
+from setuptools import find_packages, setup
+
+package_name = 'amr_navigator'
+
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=find_packages(exclude=['test']),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/params', [
+            'params/waypoints.yaml',
+            'params/waypoints_robocup.yaml',
+        ]),
+        ('share/' + package_name + '/launch', [
+            'launch/yaml_waypoint_follower.launch.py',
+            'launch/yaml_autonomous_waypoint_follower.launch.py',
+            'launch/goal_pose_generator.launch.py',
+            'launch/waypoint_marker_publisher.launch.py',
+        ]),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='amr2',
+    maintainer_email='amr2@todo.todo',
+    description='TODO: Package description',
+    license='TODO: License declaration',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'navigator_node = amr_navigator.navigator:main',
+            'waypoint_node = amr_navigator.waypoint_follower_client:main',
+            'yaml_waypoint_node = amr_navigator.yaml_waypoint_follower:main',
+            'yaml_autonomous_waypoint_node = amr_navigator.yaml_autonomous_waypoint_follower:main',
+            'robocup_waypoint_node = amr_navigator.robocup_waypoint_follower:main',
+            'waypoint_follower_client_3_12 = amr_navigator.waypoint_follower_client_3_12:main',
+            'pose_to_waypoint = amr_navigator.pose_to_waypoint:main',
+            'goal_pose_generator = amr_navigator.goal_pose_generator:main',
+            'waypoint_marker_publisher = amr_navigator.waypoint_marker_publisher:main',
+        ],
+    },
+)

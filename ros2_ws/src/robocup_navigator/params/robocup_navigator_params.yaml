@@ -1,0 +1,63 @@
+robocup_navigator:
+  ros__parameters:
+    # Parameters consumed by robocup_navigator/navigator.py.
+
+    # ------------------------------------------------------------------
+    # Station / waypoint sources
+    # ------------------------------------------------------------------
+    stations_file: "/home/moonshot/ros2_ws/src/robocup_navigator/params/robocup_waypoint.yaml"
+    frame_id: "map"
+    rotation_profiles_file: "/home/moonshot/ros2_ws/src/robocup_navigator/params/robocup_rotation_profiles.yaml"
+
+    # ------------------------------------------------------------------
+    # ROS interfaces
+    # ------------------------------------------------------------------
+    navigate_action_name: "navigate_to_station"
+    post_process_service_name: "/robocup_navigator/post_process"
+    auto_post_process_after_goal: false
+    follow_waypoints_action_name: "follow_waypoints"
+    cmd_vel_topic: "cmd_vel"
+    scan_topic: "/scan"
+
+    # ------------------------------------------------------------------
+    # Nav2 waypoint execution
+    # ------------------------------------------------------------------
+    follow_waypoints_server_timeout_sec: 10.0
+    nav_result_timeout_sec: 120.0
+
+    # ------------------------------------------------------------------
+    # Front LaserScan sampling
+    # ------------------------------------------------------------------
+    # navigator.py samples both edges of LaserScan.ranges as the forward beams.
+    front_edge_sample_count: 5
+    front_edge_skip_count: 0
+    scan_stale_timeout_sec: 0.5
+    front_min_valid_range: 0.005
+    front_max_valid_range: 5.0
+    scan_debug: true
+    scan_debug_period_sec: 1.0
+
+    # ------------------------------------------------------------------
+    # Final front-distance alignment after a goal waypoint
+    # ------------------------------------------------------------------
+    approach_after_goal: true
+    target_front_distance: 0.48
+    target_distance_tolerance: 0.01
+    approach_speed: 0.20
+    approach_min_speed: 0.05
+    approach_slowdown_distance: 0.07
+    approach_timeout_sec: 12.0
+    fail_on_alignment_timeout: false
+
+    # ------------------------------------------------------------------
+    # Post-process departure after arm/workbench operation
+    # ------------------------------------------------------------------
+    # navigator.py performs departure with direct cmd_vel, not Nav2 BackUp/Spin.
+    backup_after_goal: true
+    backup_distance: 0.20
+    backup_speed: 0.30
+    backup_timeout_sec: 5.0
+    rotate_after_backup: true
+    rotate_angular_speed: 2.8
+    rotate_timeout_sec: 8.0
+    motion_period_sec: 0.05

@@ -1,0 +1,133 @@
+frame_id: map
+
+waypoints:
+  station_0_goal:
+    position: {x: -0.127, y: -0.119, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.038, w: 0.999}
+
+  station_1_sub_goal:
+    position: {x: 0.720, y: 1.808, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.998, w: 0.068}
+
+  station_1_goal:
+    position: {x: 0.092, y: 1.912, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.998, w: 0.070}
+
+  station_2_sub_goal:
+    position: {x: 0.799, y: 2.037, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.937, w: 0.348}
+
+  station_2_goal:
+    position: {x: 0.178, y: 2.959, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.999, w: 0.049}
+
+  station_3_sub_goal:
+    position: {x: 0.924, y: 2.068, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.634, w: 0.773}
+
+  station_3_goal:
+    position: {x: 1.001, y: 2.668, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.670, w: 0.742}
+
+  station_4_sub_goal:
+    position: {x: 0.993, y: 2.316, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.676, w: 0.737}
+
+  station_4_goal:
+    position: {x: 1.915, y: 2.439, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.664, w: 0.747}
+
+  station_5_sub_goal:
+    position: {x: 2.022, y: 2.007, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.749, w: 0.662}
+
+  station_5_goal:
+    position: {x: 1.981, y: 1.442, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.747, w: 0.665}
+
+  station_6_sub_goal:
+    position: {x: 3.254, y: 0.699, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.675, w: 0.738}
+
+  station_6_goal:
+    position: {x: 3.337, y: 1.366, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: 0.658, w: 0.753}
+
+  station_7_sub_goal:
+    position: {x: 3.087, y: 1.321, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.060, w: 0.998}
+
+  station_7_goal:
+    position: {x: 3.630, y: 1.246, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.060, w: 0.998}
+
+  station_8_sub_goal:
+    position: {x: 4.097, y: -0.410, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.081, w: 0.997}
+
+  station_8_goal:
+    position: {x: 4.778, y: -0.513, z: 0.0}
+    orientation: {x: 0.0, y: 0.0, z: -0.053, w: 0.999}
+
+stations:
+  0:
+    name: station_0
+    sequence:
+      - station_0_goal
+    post_process: false
+
+  1:
+    name: station_1
+    sequence:
+      - station_1_sub_goal
+      - station_1_goal
+    post_process: true
+
+  2:
+    name: station_2
+    sequence:
+      - station_2_sub_goal
+      - station_2_goal
+    post_process: true
+
+  3:
+    name: station_3
+    sequence:
+      - station_3_sub_goal
+      - station_3_goal
+    post_process: true
+
+  4:
+    name: station_4
+    sequence:
+      - station_4_sub_goal
+      - station_4_goal
+    post_process: true
+
+  5:
+    name: station_5
+    sequence:
+      - station_5_sub_goal
+      - station_5_goal
+    post_process: true
+
+  6:
+    name: station_6
+    sequence:
+      - station_6_sub_goal
+      - station_6_goal
+    post_process: true
+
+  7:
+    name: station_7
+    sequence:
+      - station_7_sub_goal
+      - station_7_goal
+    post_process: true
+
+  8:
+    name: station_8
+    sequence:
+      - station_8_sub_goal
+      - station_8_goal
+    post_process: true
