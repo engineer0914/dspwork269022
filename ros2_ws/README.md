@@ -1,3 +1,101 @@
+
+
+## 맵 제작기
+
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+```
+
+```
+# 1. 새 맵 작성
+ros2 launch all_in_one_package generate_map_launch.py
+
+```
+
+```
+# 2. 작성한 맵 저장
+ros2 run nav2_map_server map_saver_cli \
+  -f ~/ros2_ws/src/amr/map/demo_map
+```
+
+```
+# 3. 저장한 맵 위에 waypoint yaml 설정
+ros2 run robocup_navigator waypoint_editor \
+  --map ~/ros2_ws/src/amr/map/demo_map.yaml \
+  --waypoints ~/ros2_ws/src/robocup_navigator/params/demo_waypoint.yaml
+
+```
+#################################################################################
+run drive
+
+```
+#build
+
+cd ~/ros2_ws
+colcon build --packages-select all_in_one_package
+source install/setup.bash
+```
+
+```
+#window 1 - demo navigation
+ros2 launch all_in_one_package demo_all_in_one_launch.py
+```
+
+```
+#window 2 - station navigator
+ros2 run robocup_navigator robocup_navigator_nav2 \
+  --ros-args \
+  -p stations_file:=/home/st02/ros2_ws/src/robocup_navigator/params/demo_waypoint.yaml
+```
+
+```
+#window3 - checking
+ros2 action list | grep navigate_to_station
+```
+
+
+
+```
+#window 3 - goal move
+
+
+```
+ros2 action send_goal \
+  /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: -1}" \
+  --feedback
+```
+
+```  
+ros2 action send_goal \
+  /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: 1}" \
+  --feedback
+```
+
+```
+ros2 action send_goal \
+  /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: -2}" \
+  --feedback
+```
+
+```
+ros2 action send_goal \
+  /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: 2}" \
+  --feedback
+```
+
+
+################################################################################
+
 # RoboCup SML ROS2 워크스페이스
 
 RoboCup SML(Smart Manufacturing Line) 경기를 위한 AMR + 로봇팔 통합 ROS2 워크스페이스입니다.

@@ -1,0 +1,102 @@
+    80	sb
+    81	rslv2
+    82	cd ros2_ws/
+    83	cdoe .
+    84	code .
+    85	sb
+    86	rslv2
+    87	cd ros2_ws/
+    88	sb
+    89	ros2 launch all_in_one_package all_in_one_launch.py 
+    90	ls
+    91	cd ros2_ws/
+    92	code .
+    93	ㅊㅇ 갠2
+    94	cd ros2_ws/
+    95	sb
+    96	code .
+    97	ros2 launch all_in_one_package generate_map_launch.py
+    98	os2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map
+    99	sb
+   100	os2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map
+   101	os2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map2
+   102	ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map2
+   103	ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map22
+   104	cd ros2_ws/
+   105	sb
+   106	ros2 run robocup_navigator waypoint_editor
+   107	cd ros2_ws/
+   108	sb
+   109	ros2 launch serial_test serial_test.launch.py 
+   110	cd ros2_ws/
+   111	sb
+   112	ros2 run robocup_navigator waypoint_editor
+   113	sb
+   114	ros2 run robocup_navigator waypoint_editor
+   115	cd ros2_ws/
+   116	sb
+   117	ros2 run robocup_navigator waypoint_editor
+   118	ros2 launch all_in_one_package all_in_one_launch.py 
+   119	git status 
+   120	git pull
+   121	git pull
+   122	cd ros2_ws/
+   123	git pull
+   124	cb
+   125	ls
+   126	sb
+   127	ros2 launch serial_test serial_test.launch.py 
+   128	ros2 launch all_in_one_package all_in_one_launch.py 
+   129	sb 
+   130	ros2 launch all_in_one_package all_in_one_launch.py 
+   170	rslv2
+   171	ros2 launch serial_test serial_test.launch.py 
+   172	rslv2
+   173	ros2 launch serial_test serial_
+   174	ros2 launch serial_test serial_test.launch.py 
+   175	cd ros2_ws/
+   176	sb
+   177	ros2 launch all_in_one_package all_in_one_launch.py -
+   178	ros2 launch all_in_one_package all_in_one_launch.py
+   179	cd ros2_ws/
+   180	sb
+   181	ros2 launch serial_test serial_test.launch.py 
+   182	rslv2
+   183	ros2 launch serial_test serial_test.launch.py 
+   184	ros2 launch all_in_one_package all_in_one_launch.py 
+   185	sb
+   186	ros2 run robocup_navigator robocup_test 
+   187	cd ros2_ws/
+   188	code .
+   189	sb
+   190	ros2 launch all_in_one_package generate_map_launch.py
+   191	sb
+   192	ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map_final
+   193	ros2 launch all_in_one_package all_in_one_launch.py 
+   194	sb
+   195	ros2 run robocup_navigator robocup_test 
+   196	cd ros2_ws/
+   197	sb
+   198	ros2 launch all_in_one_package all_in_one_launch.py 
+   199	sb
+   200	ros2 run robocup_navigator robocup_test 
+   201	cd ros2_ws/
+   202	sb
+   203	ros2 run robocup_navigator waypoint_editor 
+   204	sb
+   205	ros2 launch all_in_one_package all_in_one_launch.py 
+   206	ros2 run robocup_navigator waypoint_editor 
+   207	ros2 launch all_in_one_package all_in_one_launch.py 
+   208	c
+   209	ros2 launch all_in_one_package all_in_one_launch.py 
+   210	c
+   211	ros2 launch all_in_one_package all_in_one_launch.py 
+   212	sb
+   213	ros2 run robocup_navigator robocup_test 
+   214	c
+   215	ros2 run robocup_navigator robocup_test 
+   216	cd ros2_ws/
+   217	sb
+   218	ros2 run robocup_navigator waypoint_editor 
+   219	ros2 launch all_in_one_package all_in_one_launch.py 
+   220	db

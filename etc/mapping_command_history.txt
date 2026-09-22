@@ -1,0 +1,40 @@
+3:ros2 launch all_in_one_package all_in_one_launch.py 
+89:ros2 launch all_in_one_package all_in_one_launch.py 
+97:ros2 launch all_in_one_package generate_map_launch.py
+98:os2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map
+100:os2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map
+101:os2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map2
+102:ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map2
+103:ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map22
+106:ros2 run robocup_navigator waypoint_editor
+112:ros2 run robocup_navigator waypoint_editor
+114:ros2 run robocup_navigator waypoint_editor
+117:ros2 run robocup_navigator waypoint_editor
+118:ros2 launch all_in_one_package all_in_one_launch.py 
+128:ros2 launch all_in_one_package all_in_one_launch.py 
+130:ros2 launch all_in_one_package all_in_one_launch.py 
+177:ros2 launch all_in_one_package all_in_one_launch.py -
+178:ros2 launch all_in_one_package all_in_one_launch.py
+184:ros2 launch all_in_one_package all_in_one_launch.py 
+190:ros2 launch all_in_one_package generate_map_launch.py
+192:ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/amr/map/robocup_map_final
+193:ros2 launch all_in_one_package all_in_one_launch.py 
+198:ros2 launch all_in_one_package all_in_one_launch.py 
+203:ros2 run robocup_navigator waypoint_editor 
+205:ros2 launch all_in_one_package all_in_one_launch.py 
+206:ros2 run robocup_navigator waypoint_editor 
+207:ros2 launch all_in_one_package all_in_one_launch.py 
+209:ros2 launch all_in_one_package all_in_one_launch.py 
+211:ros2 launch all_in_one_package all_in_one_launch.py 
+218:ros2 run robocup_navigator waypoint_editor 
+219:ros2 launch all_in_one_package all_in_one_launch.py 
+226:ros2 launch all_in_one_package all_in_one_launch.py 
+232:ros2 launch all_in_one_package all_in_one_launch.py 
+240:ros2 launch all_in_one_package all_in_one_launch.py 
+247:ros2 launch all_in_one_package all_in_one_launch.py 
+410:ros2 launch all_in_one_package all_in_one_launch.py 
+414:ros2 launch all_in_one_package all_in_one_launch.py 
+1276:ros2 launch all_in_one_package all_in_one_launch.py 
+1363:ros2 run robocup_navigator waypoint_editor 
+1366:ros2 run robocup_navigator waypoint_editor 
+1376:ros2 run robocup_navigator waypoint_editor 
