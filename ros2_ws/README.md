@@ -1,3 +1,12 @@
+## 단순 리모컨 동작
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 launch serial_test serial_test.launch.py 
+
+```
+
 #################################################################################
 
 웨이포인트 에디터 옆에 새로 생성후 이름 바꾸고 여기에 맞춰서 드래그 및 포인트 지정하기
