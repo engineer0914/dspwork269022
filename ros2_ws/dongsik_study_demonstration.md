@@ -1,3 +1,197 @@
+맵 제작
+
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 launch all_in_one_package generate_map_launch.py
+```
+
+
+다 스캔하면 새로 창 열어서 아래 입력후 종료
+
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 run nav2_map_server map_saver_cli \
+  -f ~/ros2_ws/src/amr/map/simple_demo_map
+```
+
+이후 새로 빌드
+```
+cd ~/ros2_ws
+
+colcon build \
+  --packages-select all_in_one_package \
+  --symlink-install
+
+source install/setup.bash
+```
+#################################################################
+
+웨이포인트 설정
+
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 run robocup_navigator waypoint_editor \
+  --map ~/ros2_ws/src/amr/map/simple_demo_map.yaml \
+  --waypoints ~/ros2_ws/src/robocup_navigator/params/simple_demo_waypoint.yaml \
+  --rotation-profiles ~/ros2_ws/src/robocup_navigator/params/simple_demo_rotation_profiles.yaml
+```
+확인
+```
+cat ~/ros2_ws/src/robocup_navigator/params/simple_demo_waypoint.yaml
+
+cat ~/ros2_ws/src/robocup_navigator/params/simple_demo_rotation_profiles.yaml
+```
+
+
+#######################################################
+주행 테스트
+# 1번 터미널
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 launch all_in_one_package simple_demo_all_in_one_launch.py
+```
+
+# 2번 터미널
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 run robocup_navigator robocup_navigator_nav2 \
+  --ros-args \
+  -p stations_file:=/home/st02/ros2_ws/src/robocup_navigator/params/simple_demo_waypoint.yaml
+```
+
+# 3번 터미널 명령
+```
+ros2 action send_goal /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: -1}" --feedback
+```
+
+###########################
+수동 위치 이동후 매니퓰
+
+source ~/.bashrc
+
+# 1번 터미널
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 launch all_in_one_package simple_demo_all_in_one_launch.py
+```
+
+# 2번 터미널
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 run robocup_navigator robocup_navigator_nav2 \
+  --ros-args \
+  -p stations_file:=/home/st02/ros2_ws/src/robocup_navigator/params/simple_demo_waypoint.yaml
+```
+
+# 3번 주행 명령
+```
+ros2 action send_goal /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: -1}" --feedback
+```
+
+# 4번창 터미널 - 매니퓰
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+ros2 launch amr_robot_launch amr_robot.launch.py
+```
+
+# 5번창 매니퓰 명령
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+```
+
+######################
+시퀀스
+
+
+
+# a 위치 이동 - 3번 터미널
+```
+ros2 action send_goal /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: -1}" --feedback
+```
+
+```
+ros2 action send_goal /navigate_to_station \
+  robocup_pkg/action/NavTask \
+  "{station_id: 1}" --feedback
+```
+
+# 적재 - 5번 터미널
+```
+ros2 service call /amr_robot_command \
+  robocup_pkg/srv/ArmCommand \
+  "{action: 'LOAD', object_ids: [8, 1], location: 1, station_id: 1, slide_ids: []}"
+```
+
+# 조립 - 5번 터미널
+```
+ros2 service call /amr_robot_command \
+  robocup_pkg/srv/ArmCommand \
+  "{action: 'ASSEMBLE', object_ids: [81], location: 0, station_id: 0, slide_ids: []}"
+```
+
+# 조립 - 5번 터미널
+```
+ros2 service call /amr_robot_command \
+  robocup_pkg/srv/ArmCommand \
+  "{action: 'UNLOAD', object_ids: [81], location: 0, station_id: 2, slide_ids: []}"
+```
+
+
+
+# 전체 시퀀스
+```
+python3 ~/ros2_ws/simple_demo.py
+```
+
+# 전체 시퀀스
+```
+cd ~/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+
+python3 ~/ros2_ws/simple_demo.py
+```
+
+
+
+
+
+
+
+
+
 # AMR 단순 주행 테스트 정리
 
 현재까지 구성한 것은 **새 맵 생성 → Station waypoint 지정 → Nav2를 이용한 Station 간 단순 이동**이다.
