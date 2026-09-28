@@ -1,0 +1,60 @@
+waypoints:
+  station_1_sub_goal:
+    position:
+      x: 0.581498
+      y: 0.475823
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.427602
+      w: 0.903967
+  station_1_goal:
+    position:
+      x: 0.978352
+      y: -0.059176
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.411323
+      w: 0.911489
+  station_2_sub_goal:
+    position:
+      x: -1.156622
+      y: 0.696856
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.952295
+      w: 0.30518
+  station_2_goal:
+    position:
+      x: -1.826418
+      y: 0.074783
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.960595
+      w: 0.277952
+sequence:
+- station_1_sub_goal
+- station_1_goal
+- station_2_sub_goal
+- station_2_goal
+frame_id: map
+stations:
+  1:
+    name: station_1
+    sequence:
+    - station_1_sub_goal
+    - station_1_goal
+    post_process: false
+  2:
+    name: station_2
+    sequence:
+    - station_2_sub_goal
+    - station_2_goal
+    post_process: false
