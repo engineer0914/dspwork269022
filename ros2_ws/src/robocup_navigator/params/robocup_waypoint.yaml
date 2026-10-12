@@ -62,7 +62,7 @@ waypoints:
   station_4_sub_goal:
     position:
       x: 3.4
-      y: 3.75
+      y: 3.6
       z: 0.0
     orientation:
       x: 0.0

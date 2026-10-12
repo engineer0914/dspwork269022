@@ -68,12 +68,12 @@ class CargoManager:
             slot_id: CargoSlot(slot_id) for slot_id in MATERIAL_SLOTS
         }
         self.finished_on_cargo1: int = 0
-        # Recycle-transit occupancy of cargo 1 (see Cargo Slot Convention).
-        # Tracked explicitly instead of inferred from call ordering, so a
-        # logic bug that tries to pick a second recycled product before the
-        # first has been unloaded is caught immediately instead of silently
-        # corrupting state.
-        self._cargo1_recycle_product: Optional[int] = None
+        # Product-transit occupancy of cargo 1 (recycle pickups and
+        # WB-produced products ride on cargo 1). Tracked explicitly instead
+        # of inferred from call ordering, so a logic bug that tries to load a
+        # second product before the first has been unloaded is caught
+        # immediately instead of silently corrupting state.
+        self._cargo1_product: Optional[int] = None
 
     def place_material(self, material_id: int) -> Optional[int]:
         """Place material in the first slot with enough space. Returns cargo_id or None."""
@@ -143,20 +143,20 @@ class CargoManager:
         self.finished_on_cargo1 = max(0, self.finished_on_cargo1 - 1)
 
     # ------------------------------------------------------------------
-    # Cargo 1 recycle-transit occupancy
+    # Cargo 1 product-transit occupancy
     # ------------------------------------------------------------------
 
     def try_occupy_cargo1(self, product_id: int) -> bool:
-        """Attempt to record product_id as occupying cargo 1 for recycle transit.
+        """Attempt to record product_id as occupying cargo 1 for transit.
 
         Returns False (and leaves state unchanged) if cargo 1 is already
         occupied by a different product — callers must treat this as a hard
-        stop rather than proceeding, since it means a previous recycled
-        product was never unloaded from cargo 1.
+        stop rather than proceeding, since it means a previous product was
+        never unloaded from cargo 1.
         """
-        if self._cargo1_recycle_product is not None:
+        if self._cargo1_product is not None:
             return False
-        self._cargo1_recycle_product = product_id
+        self._cargo1_product = product_id
         return True
 
     def release_cargo1(self, expected_product_id: int) -> bool:
@@ -167,11 +167,11 @@ class CargoManager:
         identity mismatch between what the planner tracked and what the
         arm actually moved.
         """
-        if self._cargo1_recycle_product != expected_product_id:
+        if self._cargo1_product != expected_product_id:
             return False
-        self._cargo1_recycle_product = None
+        self._cargo1_product = None
         return True
 
     @property
     def cargo1_occupant(self) -> Optional[int]:
-        return self._cargo1_recycle_product
+        return self._cargo1_product

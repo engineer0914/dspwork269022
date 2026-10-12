@@ -217,7 +217,7 @@ PICK_OFFSET = {
     442:   {},               # carrot
     241:   {},               # traffic_light
     462:   {'z': 20.0},               # small_tree
-    711:   {'x': 0.0, 'z': 20.0},     # hammer 로봇베이스 기준 안쪽은 x+ 
+    711:   {'x': -25.0, 'z': 20.0},     # hammer 로봇베이스 기준 안쪽은 x+ 
     4482:  {'x': -20.0, 'z': 25.0},               # big_carrot
     8518:  {'y': -3.0, 'z': 30.0},   # burger
     48132: {'z': 25.0},               # ice_cream
@@ -260,7 +260,7 @@ DELIVERY_Z_MM = 165.0 #학교 115 #대회 165
 # point 6에서 내려놓을 때 층 그룹과 무관하게 항상 이 값만큼 내려갔다 올라온다.
 # 비전으로 x,y 보정을 거치면 실제 도착 위치가 미세하게 달라질 수 있어서,
 # 워크벤치(비전 없이 point 6 직행)와 그 외 스테이션(비전 보정)의 z를 따로 둔다.
-PRODUCT_DELIVERY_FIXED_Z_MM = 190.0   # 워크벤치 (비전 없음)
+PRODUCT_DELIVERY_FIXED_Z_MM = 240.0   # 워크벤치 (비전 없음)
 PRODUCT_DELIVERY_VISION_Z_MM = 225.0  # 그 외 스테이션 (비전 x,y 보정)
 
 

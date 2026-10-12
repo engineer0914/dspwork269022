@@ -17,14 +17,14 @@ from PIL import Image, ImageOps, ImageTk
 
 
 STATION_WAYPOINT_RE = re.compile(r'^station_(\d+)_(sub_)?goal$')
-DEFAULT_MAP_PATH = Path.home() / 'ros2_ws/src/amr/map/planner_map.yaml'
+DEFAULT_MAP_PATH = Path.home() / 'ros2_ws/src/amr/map/robocup_map.yaml'
 DEFAULT_WAYPOINTS_PATH = (
     Path.home()
-    / 'ros2_ws/src/robocup_navigator/params/planner_waypoint.yaml'
+    / 'ros2_ws/src/robocup_navigator/params/robocup_waypoint.yaml'
 )
 DEFAULT_ROTATION_PROFILES_PATH = (
     Path.home()
-    / 'ros2_ws/src/robocup_navigator/params/planner_rotation_profiles.yaml'
+    / 'ros2_ws/src/robocup_navigator/params/robocup_rotation_profiles.yaml'
 )
 DEFAULT_BACKUP_DISTANCE = 0.20
 DEFAULT_ROTATE_ANGULAR_SPEED = 1.4
